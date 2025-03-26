@@ -13,6 +13,7 @@ const ComponentsApp = () => {
     <ThemedView margin>
       {animationMenuRoutes.map((route, index) => (
         <MenuItem
+          key={index}
           title={route.title}
           icon={route.icon}
           name={route.name}
@@ -25,6 +26,7 @@ const ComponentsApp = () => {
 
       {uiMenuRoutes.map((route, index) => (
         <MenuItem
+          key={index}
           title={route.title}
           icon={route.icon}
           name={route.name}
@@ -37,6 +39,7 @@ const ComponentsApp = () => {
 
       {menuRoutes.map((route, index) => (
         <MenuItem
+          key={index}
           title={route.title}
           icon={route.icon}
           name={route.name}

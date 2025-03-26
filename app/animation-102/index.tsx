@@ -7,16 +7,13 @@ const Animation102Screen = () => {
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: Animated.event(
-      [
-        null,
-        {
-          dx: pan.x, // x,y are Animated.Value
-          dy: pan.y,
-        },
-      ],
-      { useNativeDriver: false }
-    ),
+    onPanResponderMove: Animated.event([
+      null,
+      {
+        dx: pan.x, // x,y are Animated.Value
+        dy: pan.y,
+      },
+    ]),
     onPanResponderRelease: () => {
       Animated.spring(
         pan, // Auto-multiplexed

@@ -15,6 +15,7 @@ import { Stack } from "expo-router";
 import { allRoutes } from "@/constants/Routes";
 
 import "../global.css";
+import { ThemeChangerProvider } from "@/presentation/context/ThemeChangerContext";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -37,7 +38,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ backgroundColor, flex: 1 }}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <ThemeChangerProvider>
         <Stack
           screenOptions={{
             headerShadowVisible: false,
@@ -63,7 +64,7 @@ export default function RootLayout() {
             />
           ))}
         </Stack>
-      </ThemeProvider>
+      </ThemeChangerProvider>
     </GestureHandlerRootView>
   );
 }

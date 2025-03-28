@@ -73,7 +73,7 @@ const SlideItem = ({ item }: SlideItemType) => {
   );
 };
 const SlidesScreen = () => {
-  const FlatListRef = useRef<FlatList>(null);
+  const flatListRef = useRef<FlatList>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isScrollEnabled, setIsScrollEnabled] = useState(false);
 
@@ -92,9 +92,9 @@ const SlidesScreen = () => {
   };
 
   const scrollToSlide = (index: number) => {
-    if (!FlatListRef.current) return;
+    if (!flatListRef.current) return;
 
-    FlatListRef.current.scrollToIndex({
+    flatListRef.current.scrollToIndex({
       index,
       animated: true,
     });
@@ -103,7 +103,7 @@ const SlidesScreen = () => {
   return (
     <ThemedView>
       <FlatList
-        ref={FlatListRef}
+        ref={flatListRef}
         data={items}
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => <SlideItem item={item} />}
